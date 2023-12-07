@@ -1,0 +1,138 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.graphs{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.graph{
+
+    &--power{
+        padding-top: 7rem;
+    }
+
+    &__chart{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 4rem;
+    }
+
+    &__filter{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        select{
+            border: 1px solid v.$azul;
+            border-radius: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+        }
+    }
+    
+
+    &__button{
+        background-color: v.$blanco;
+        color: v.$azul;
+        border: 1px solid v.$azul;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 1.2rem;
+
+        &--active{
+            background-color: v.$azul;
+            color: v.$blanco;
+        }
+    }
+
+    &__canvas{
+        display: flex;
+        flex-direction: column;
+        background-color: lighten($color: v.$dark, $amount: 10);
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        &--power{
+            width: 70%;
+        }
+    }
+
+    &__options{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    &__heading{
+        font-size: 2.4rem;
+        text-align: left;
+        
+        &--power{
+            margin: 0;
+        }
+
+        &--circle{
+            text-align: center;
+        }
+
+        &--main{
+            font-weight: v.$bold;
+            text-align: center;
+            font-size: 3.4rem;
+            margin-top: 7rem;
+        }
+    }
+}
+
+.graph__canvas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-graph{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+    &__circle{
+        width: 90%;
+        height: 90%;
+        // background-color: v.$verde;
+        background: conic-gradient(v.$verde 0%, lighten($color: v.$dark, $amount: 20) 0);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    
+        &--inner{
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background-color: lighten($color: v.$dark, $amount: 10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            p{
+                font-size: 3rem;
+                font-weight: v.$bold;
+            }
+        }
+    }
+}

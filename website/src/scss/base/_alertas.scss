@@ -1,0 +1,34 @@
+@use 'base/variables' as v;
+
+.alerta{
+    padding: 1.5rem 1.5rem 1.5rem 3rem;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: v.$bold;
+    &__error{
+        color: v.$rojo;
+        background-color: lighten($color: v.$rojo, $amount: 60);
+        border-left: .5rem solid v.$rojo;
+    }
+
+    &__exito{
+        color: darken($color: v.$verde, $amount: 20);
+        background-color: lighten($color: v.$verde, $amount: 40);
+        border-left: .5rem solid v.$verde;
+    }
+}
+
+.alerts{
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    .alerta{
+        width: 100%;
+    }
+}
